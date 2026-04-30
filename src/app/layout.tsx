@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "../providers/theme-provider";
+import NavigationBar from "@/components/NavigationBar";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -28,12 +29,13 @@ export default function RootLayout({
         className="antialised bg-background text-foreground"
         suppressHydrationWarning
       >
-        <ThemeProvider 
-          attribute="class" 
+        <ThemeProvider
+          attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          <NavigationBar />
           {children}
         </ThemeProvider>
       </body>
