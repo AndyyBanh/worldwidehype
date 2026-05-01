@@ -37,3 +37,43 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Image Slideshow */
+.slideshow-track {
+  display: flex;
+  gap: 2.5rem;
+  width: max-content;
+  animation: slideshow-scroll 60s linear infinite;
+}
+
+.slideshow-slide {
+  position: relative;
+  flex-shrink: 0;
+  width: 280px;
+  height: 320px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .slideshow-slide {
+    width: 340px;
+    height: 380px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slideshow-slide {
+    width: 400px;
+    height: 440px;
+  }
+}
+
+@keyframes slideshow-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

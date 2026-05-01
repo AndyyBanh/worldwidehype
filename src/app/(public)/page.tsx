@@ -1,16 +1,15 @@
 import { Button } from '@/components/ui/button';
-import Footer from '@/components/Footer';
+import Footer from '@/components/layout/Footer';
+import ImageSlideshow from '@/components/layout/ImageSlideshow';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
 export default function Home() {
   return (
-    <div className='min-h-screen flex flex-col'>
-
-        <section className='flex-1 flex items-center justify-center px-4 pt-16'>
+    <div className='flex flex-col'>
+        <section className='h-[80vh] flex items-center justify-center px-4'>
           <div className='w-full max-w-3xl text-center'>
-
             <div className='flex justify-center mb-6'>
               <Image
                 src='/wwhdark.png'
@@ -29,17 +28,14 @@ export default function Home() {
                 priority
               />
             </div>
-
             <h1 className='font-bold text-6xl md:text-7xl tracking-tight leading-tight'>
               WORLD WIDE
               <br />
               <span className=''>HYPE</span>
             </h1>
-
             <p className='mt-4 text-lg text-muted max-w-xl mx-auto'>
               The premier place for high quality sneakers, streetwear, and accessories.
             </p>
-
             <div className='flex flex-col items-center justify-center gap-4 mt-8'>
               <Link href='/sell'>
                 <Button
@@ -51,12 +47,12 @@ export default function Home() {
               </Link>
               <p className='text-sm text-muted max-w-xl mx-auto'>We buy anything from sneakers, streetwear, and collectibles.</p>
             </div>
-
           </div>
         </section>
 
-        <Footer />
+        <ImageSlideshow />
 
+        <Footer />
     </div>
   )
 }

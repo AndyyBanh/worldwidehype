@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from './ui/button'
+import { Button } from '../ui/button'
 import Link from 'next/link'
 import ThemeToggle from './ThemeToggle'
 import Image from 'next/image'
@@ -30,7 +30,7 @@ const NavigationBar = () => {
                 <ThemeToggle />
                 <Link href='/login'>
                     <Button
-                      className='border-border-subtle text-base transition-all duration-200 hover:scale-105 hover:outline-background-subtle'
+                      className='border-border-subtle transition-all duration-200 hover:scale-105 hover:outline-background-subtle'
                       size='lg'
                     >
                         Admin
