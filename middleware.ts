@@ -7,5 +7,8 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard"], // only run on protected routes, not everything
+  // POST /api/selling is public (user inquiry form), so the collection
+  // path is intentionally omitted — middleware can't filter by method.
+  // Admin checks for that path live in the route handler.
+  matcher: ["/dashboard/:path*", "/api/selling/:id*"],
 }

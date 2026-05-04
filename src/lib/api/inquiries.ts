@@ -1,10 +1,5 @@
-import { Database } from "../../../types/supabase";
+import { CollectibleInsert, InquiryStatus, SellingInquiryInsert, ShoeInquiryInsert } from "@/types/inquiry";
 import { createClient } from "../supabase/server";
-
-// Types extracted from supabase schema
-type SellingInquiryInsert = Database['public']['Tables']['selling_inquiries']['Insert'];
-type ShoeInquiryInsert = Database['public']['Tables']['shoe_inquiries']['Insert'];
-type CollectibleInsert = Database['public']['Tables']['collectible_inquiries']['Insert'];
 
 export async function createInquiry(
     inquiry: SellingInquiryInsert, 
@@ -59,7 +54,7 @@ export async function getInquiryById(id: string) {
     .single();
 }
 
-export async function updateInquiryStatus(id: string, status: "pending" | "contacted" | "completed") {
+export async function updateInquiryStatus(id: string, status: InquiryStatus) {
     const supabase = await createClient();
 
     return supabase.from("selling_inquiries")
