@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { createClient } from '@/lib/supabase/client'
+import { validateEmail } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 
@@ -18,7 +19,7 @@ export default function Login() {
     setError('');
     setLoading(true);
 
-    if (!email) {
+    if (!email && !validateEmail(email)) {
       setError("Please enter your email address");
       return;
     }
